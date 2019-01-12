@@ -1,0 +1,21 @@
+@import "variables";
+
+html,body{
+  height: 100%;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+body {
+  background: $color-background-primary;
+  color: $color-text-primary;
+  font-family: $font-family;
+  min-width: $body-mini-width;
+  line-height: $line-height;
+  overflow: auto !important;
+  font-size: $font-size;
+}

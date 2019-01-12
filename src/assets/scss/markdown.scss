@@ -1,0 +1,24 @@
+@import "github-markdown-css/github-markdown.css";
+@import "variables";
+
+// Markdown
+.markdown-body {
+    color: inherit;
+    font-size: $font-size;
+    line-height: $line-height;
+
+    img {
+        width: 100% !important;
+        width: 20px;
+    }
+
+    pre {
+        line-height: inherit;
+    }
+
+    code {
+        //box-shadow: none;
+        //color: inherit;
+        white-space: pre-wrap !important;
+    }
+}

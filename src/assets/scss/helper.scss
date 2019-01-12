@@ -1,0 +1,167 @@
+@import "variables";
+@import "mixin";
+
+a {
+    color: $color-link-primary;
+    text-decoration: none;
+}
+
+
+a:hover {
+    @include link_hover
+}
+
+
+.no-margin {
+    margin: 0 !important;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+.no-margin-padding {
+    @extend .no-margin, .no-padding;
+}
+
+
+:focus {
+    outline: none;
+}
+
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+// Center
+.flex {
+    display: flex;
+}
+
+.horizontal-center {
+    @extend .flex;
+    justify-content: center;
+}
+
+.vertical-center {
+    @extend .flex;
+    align-items: center;
+}
+
+
+// Border-radios
+.border-circle {
+    border-radius: 50%;
+}
+
+
+// UL
+.list-style-none {
+    list-style: none;
+}
+
+// Color
+.color-white {
+    color: $color-white;
+}
+
+// Font
+.font-weight-bold {
+    font-weight: bold;
+}
+
+.font-weight-normal {
+    font-weight: normal;
+}
+
+// Card
+.card {
+    background: $color-background-second;
+    border-radius: 5px;
+    box-shadow: 0 0px 4px 0 $color-shadow;
+    overflow: hidden;
+
+    .card-title {
+        h2 {
+            margin: 0;
+            font-weight: normal;
+            font-size: 22px;
+        }
+    }
+}
+
+
+// Container
+.container {
+    padding: 40px 45px;
+}
+
+
+// Action
+.action-title {
+    font-size: 28px;
+    font-weight: normal;
+    margin: 0;
+    margin-bottom: 1.5rem;
+}
+
+.action-group {
+    @extend .vertical-center;
+
+    a, button {
+        margin-bottom: 1.5rem;
+        margin-left: auto;
+    }
+    .refresh-switch{
+        margin-left: auto;
+        margin-bottom: 1rem;
+    }
+}
+
+// Width
+.width-full {
+    width: 100%;
+}
+.height-full {
+    height: 100%;
+}
+
+
+// Button
+.button-primary {
+    background: $color-link-primary;
+    border-color: $color-link-primary;
+}
+
+// Helper
+.helper-text {
+    color: $color-text-secondary;
+    font-size: 95%;
+    display: inline-block;
+    line-height: $line-height;
+}
+
+.time {
+    color: $color-text-secondary;
+    font-size: 95%;
+}
+
+.hr {
+    width: 100%;
+    height: 1px;
+    background: $color-split;
+}
+
+.clear {
+    clear: both;
+}
+
+.text-pre {
+    white-space: pre-wrap;
+}
+
+.text-pre-nowrap {
+    white-space: pre;
+}
+

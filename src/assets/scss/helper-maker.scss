@@ -1,0 +1,152 @@
+@import "variables";
+//
+
+@each $item, $value in (
+  color-link-hover: $color-link-hover,
+  color-link-clicked: $color-link-clicked,
+  color-link-primary: $color-link-primary,
+  color-text-primary: $color-text-primary,
+  color-text-title: $color-text-title,
+  color-text-secondary: $color-text-secondary,
+  color-text-placeholder: $color-text-placeholder,
+  color-disable: $color-disable,
+  color-border: $color-border,
+  color-split: $color-split,
+  color-shadow: $color-shadow,
+  color-white: $color-white,
+  color-background-primary: $color-background-primary,
+  color-background-dark: $color-background-dark,
+  color-background-second: $color-background-second,
+) {
+  .#{$item} {
+    color: $value;
+  }
+  .border-#{$item} {
+    border: 1px solid $value;
+  }
+  .bg-#{$item} {
+    background-color: $value;
+  }
+}
+
+// Font-size
+@each $i in (
+  11, 12, 13, 14, 15, 16, 18, 20, 22, 24, 25, 26, 28, 30, 32, 34, 35, 36, 38, 40
+) {
+  .font-size-#{$i} {
+    font-size: #{$i}px !important;
+  }
+}
+
+// Line-height
+@each $i in (0, 1, 1.5, 2, 2.5, 3) {
+  @if ($i % 1) != 0 {
+    .line-height-#{$i*10} {
+      line-height: #{$i} !important;
+    }
+  } @else {
+    .line-height-#{$i} {
+      line-height: #{$i} !important;
+    }
+  }
+}
+
+
+@for $i from 1 through 10 {
+  .border-radius-#{$i} {
+    border-radius: #{$i}px !important;
+  }
+  .width-#{$i}-rem {
+    width: #{$i}rem;
+  }
+}
+
+
+// Wrap text
+@for $i from 1 through 5 {
+  @if $i == 1 {
+    .wrap-line-#{$i} {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  } @else {
+    .wrap-line-#{$i} {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: #{$i};
+      overflow: hidden;
+    }
+  }
+}
+
+
+// Line-height
+@each $i in ('inline', 'block', 'inline-block', 'none', 'flex') {
+  .display-#{$i} {
+    display: #{$i} !important;
+  }
+}
+
+@each $i in ('left', 'right') {
+  .float-#{$i} {
+    float: #{$i} !important;
+  }
+}
+
+@each $i in ('left', 'right', 'center') {
+  .text-align-#{$i} {
+    text-align: #{$i} !important;
+  }
+}
+
+
+// Margin
+@for $i from 1 through 9 {
+  @each $s in ('s', '') {
+    $value: $i;
+    @if $s == 's' {
+      $value: $i / 10
+    }
+
+    @each $ii in ('margin', 'padding') {
+      .#{$ii}-lr-#{$s}#{$i}-rem {
+        #{$ii}-left: #{$value}rem;
+        #{$ii}-right: #{$value}rem;
+      }
+      .#{$ii}-right-#{$s}#{$i}-rem {
+        #{$ii}-right: #{$value}rem;
+      }
+      .#{$ii}-left-#{$s}#{$i}-rem {
+        #{$ii}-left: #{$value}rem;
+      }
+      .#{$ii}-top-#{$s}#{$i}-rem {
+        #{$ii}-top: #{$value}rem;
+      }
+      .#{$ii}-bottom-#{$s}#{$i}-rem {
+        #{$ii}-bottom: #{$value}rem;
+      }
+      .#{$ii}-tb-#{$s}#{$i}-rem {
+        #{$ii}-top: #{$value}rem;
+        #{$ii}-bottom: #{$value}rem;
+      }
+      .#{$ii}-#{$s}#{$i}-rem {
+        #{$ii}: #{$value}rem;
+      }
+    }
+    .height-#{$s}#{$i}-rem {
+      height: #{$value}rem;
+    }
+
+  }
+}
+
+// Empty Height
+@for $i from 1 through 9 {
+  .break-#{$i}-rem {
+    height: #{$i}rem;
+  }
+  .break-s#{$i}-rem {
+    height: #{$i/10}rem;
+  }
+}
