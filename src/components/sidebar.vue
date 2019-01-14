@@ -3,7 +3,7 @@
         <div class="user-info margin-tb-3-rem">
             <div class="text-align-center">
                 <div class="avatar">
-                    <img :src="user.avatar" alt=""
+                    <img :src="user.avatar || '../../static/img/avatar_default.svg'" alt=""
                          class="border-circle" width="60">
                 </div>
                 <div class="name">

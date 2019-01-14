@@ -16,11 +16,11 @@ Vue.use(ElementUI)
 Vue.use(Util)
 Vue.use(Api)
 
-import VChartLine from 'v-charts/lib/line.common'
-import VChartHistogram from 'v-charts/lib/histogram.common'
+// import VChartLine from 'v-charts/lib/line.common'
+// import VChartHistogram from 'v-charts/lib/histogram.common'
 // Vue.use(VCharts)
-Vue.component(VChartLine.name, VChartLine)
-Vue.component(VChartHistogram.name, VChartHistogram)
+// Vue.component(VChartLine.name, VChartLine)
+// Vue.component(VChartHistogram.name, VChartHistogram)
 
 Vue.config.productionTip = false
 
