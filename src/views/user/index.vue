@@ -36,6 +36,11 @@
                                     <el-tag type="danger" v-else>失败</el-tag>
                                 </template>
                             </el-table-column>
+                            <el-table-column prop="login_num" label="登录次数">
+                                <template slot-scope="scope">
+                                    <el-tag size="medium">{{ scope.row.login_num }}</el-tag>
+                                </template>
+                            </el-table-column>
                             <el-table-column prop="last_heartbeat" label="最后心跳">
                                 <template slot-scope="scope">
                                     <span v-text="scope.row.last_heartbeat" class="time"></span>

@@ -22,6 +22,28 @@
                 <div class="break-2-rem clear hidden-md-and-down"></div>
             </el-row>
         </el-container>
+        <el-container v-if="cluster.count">
+            <el-row class="width-full">
+                <h2 class="action-title">集群状态</h2>
+                <el-row :gutter="40" class="system-state">
+                    <el-col :lg="6" :md="8" :sm="12" v-for="item in cluster_lists" :key="item.key">
+                        <div class="card">
+                            <div class="left" :class="{'width-full': !item.icon}">
+                                <div class="name" v-text="item.name"></div>
+                                <div class="value" :class="{'node-list': item.key == 'node_lists'}"
+                                     v-text="cluster[item.key] != undefined ? cluster[item.key] : '-'"></div>
+                            </div>
+                            <div class="right">
+                                <span :class="item.icon" v-if="item.icon"
+                                      :style="item.icon_color ? 'background: ' + item.icon_color : ''"></span>
+                            </div>
+                        </div>
+                        <div class="break-2-rem clear hidden-lg-and-up"></div>
+                    </el-col>
+                </el-row>
+                <div class="break-2-rem clear hidden-md-and-down"></div>
+            </el-row>
+        </el-container>
     </div>
 </template>
 
@@ -34,7 +56,13 @@
                     {name: '任务', key: 'query_job_count', icon: 'fa fa-infinity', icon_color: '#F5A623'},
                     {name: '查询次数', key: 'query_count', icon: 'fa fa-search', icon_color: '#4A90E2'},
                 ],
+                cluster_lists: [
+                    {name: '节点数量', key: 'count', icon: 'fa fa-globe-asia', icon_color: '#7DD43B'},
+                    {name: '主节点', key: 'master'},
+                    {name: '节点列表', key: 'node_lists'},
+                ],
                 dashboard: {},
+                cluster: {},
                 real_time_message_colors: ['#18D4AD'],
                 real_time_message_data: {
                     columns: ['Date', '实时消息'],
@@ -56,13 +84,19 @@
         },
         methods: {
             async refreshData() {
-                if(this.$route.path != '/') return
+                if (this.$route.path != '/') return
                 await this.getDashboard()
+                await this.getCluster()
                 setTimeout(this.refreshData, this.refreshTime * 1000)
             },
             async getDashboard() {
                 await this.$api.get_dashboard().then(res => {
                     this.dashboard = res.data
+                })
+            },
+            async getCluster() {
+                await this.$api.get_stat_cluster().then(res => {
+                    this.cluster = res.data
                 })
             },
         }
@@ -98,8 +132,18 @@
                     font-size: 36px;
                     text-align: center;
                     padding: 0 5px;
-                    overflow: hidden;
+                    overflow: scroll;
                 }
+
+                .node-list {
+                    font-size: 24px;
+                    padding-top: 15px;
+                    height: 50px;
+                }
+            }
+
+            .width-full{
+                width: 100% !important;
             }
 
             .right {

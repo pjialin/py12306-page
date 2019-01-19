@@ -15,6 +15,7 @@ const API = {
     get_query: () => axios.get('query'),
     // Stat
     get_dashboard: () => axios.get('stat/dashboard'),
+    get_stat_cluster: () => axios.get('stat/cluster'),
     // Help
     get_readme: () => axios.get('https://raw.githubusercontent.com/pjialin/py12306/master/README.md', {
         auth: false,
