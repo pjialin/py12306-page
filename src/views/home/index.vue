@@ -55,6 +55,7 @@
                     {name: '用户', key: 'user_job_count', icon: 'fa fa-user', icon_color: '#7DD43B'},
                     {name: '任务', key: 'query_job_count', icon: 'fa fa-infinity', icon_color: '#F5A623'},
                     {name: '查询次数', key: 'query_count', icon: 'fa fa-search', icon_color: '#4A90E2'},
+                    {name: 'CDN', key: 'cdn_count', icon: 'fa fa-bolt', icon_color: '#e24858'},
                 ],
                 cluster_lists: [
                     {name: '节点数量', key: 'count', icon: 'fa fa-globe-asia', icon_color: '#7DD43B'},
@@ -132,17 +133,18 @@
                     font-size: 36px;
                     text-align: center;
                     padding: 0 5px;
-                    overflow: scroll;
+                    overflow: hidden;
                 }
 
                 .node-list {
                     font-size: 24px;
                     padding-top: 15px;
                     height: 50px;
+                    overflow: auto;
                 }
             }
 
-            .width-full{
+            .width-full {
                 width: 100% !important;
             }
 
